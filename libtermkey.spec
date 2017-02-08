@@ -9,7 +9,7 @@
 %define staticdevelname %mklibname %{Basename_} -d -s
 
 Name:		libtermkey
-Version:	0.18
+Version:	0.19
 Release:	1
 Summary:	Library for easy processing of keyboard entry
 # the licensing breakdown is described in detail in the LICENSE file
