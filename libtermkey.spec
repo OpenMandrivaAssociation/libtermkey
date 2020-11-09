@@ -10,12 +10,12 @@
 
 Name:		libtermkey
 Version:	0.22
-Release:	1
+Release:	2
 Summary:	Library for easy processing of keyboard entry
 # the licensing breakdown is described in detail in the LICENSE file
 License:	MIT and BSD and ISC
 Group:		Development/C
-URL:		http://libtermkey.org/
+URL:		http://www.leonerd.org.uk/code/libtermkey/
 Group:		Development/C
 Source0:	http://www.leonerd.org.uk/code/libtermkey/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(ncurses)
@@ -68,4 +68,4 @@ sed -e '/^all:/s:$(DEMOS)::' -i Makefile
 %{_libdir}/libtermkey.so
 %{_libdir}/pkgconfig/termkey.pc
 %{_includedir}/termkey*.h
-%{_mandir}/man*/*.xz
+%{_mandir}/man*/*
