@@ -10,7 +10,7 @@
 
 Name:		libtermkey
 Version:	0.22
-Release:	2
+Release:	3
 Summary:	Library for easy processing of keyboard entry
 # the licensing breakdown is described in detail in the LICENSE file
 License:	MIT and BSD and ISC
@@ -44,12 +44,12 @@ Requires: pkgconfig
 Development libraries for libtermkey
 
 %prep
-%setup -q
+%autosetup -p1
 
 sed -e '/^all:/s:$(DEMOS)::' -i Makefile
 
 %build
-%setup_compile_flags
+%set_build_flags
 %make PREFIX=/usr LIBDIR="%{_libdir}"
 
 %install
