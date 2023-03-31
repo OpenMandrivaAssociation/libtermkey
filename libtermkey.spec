@@ -10,7 +10,7 @@
 
 Name:		libtermkey
 Version:	0.22
-Release:	3
+Release:	4
 Summary:	Library for easy processing of keyboard entry
 # the licensing breakdown is described in detail in the LICENSE file
 License:	MIT and BSD and ISC
