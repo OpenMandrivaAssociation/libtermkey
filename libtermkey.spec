@@ -4,22 +4,24 @@
 
 %define major 1
 %define Basename_ termkey
-%define libname %mklibname %{Basename_} %{major}
+%define oldlibname %mklibname %{Basename_} 1
+%define libname %mklibname %{Basename_}
 %define develname %mklibname %{Basename_} -d
 %define staticdevelname %mklibname %{Basename_} -d -s
 
 Name:		libtermkey
 Version:	0.22
-Release:	4
+Release:	5
 Summary:	Library for easy processing of keyboard entry
 # the licensing breakdown is described in detail in the LICENSE file
 License:	MIT and BSD and ISC
 Group:		Development/C
 URL:		http://www.leonerd.org.uk/code/libtermkey/
-Group:		Development/C
 Source0:	http://www.leonerd.org.uk/code/libtermkey/%{name}-%{version}.tar.gz
+# ****ing libtool is good for nothing and messes with crosscompiling.
+# Let's just get rid of it!
+Patch0:		libtermkey-0.22-libtool-die-die-die.patch
 BuildRequires:	pkgconfig(ncurses)
-BuildRequires: 	libtool
 
 %description
 This library allows easy processing of keyboard entry from terminal-based
@@ -28,6 +30,7 @@ combining, and so on, with a simple interface.
 
 %package -n %{libname}
 Summary: Library for easy processing of keyboard entry
+%rename %{oldlibname}
 
 %description -n %{libname}
 This library allows easy processing of keyboard entry from terminal-based
@@ -50,16 +53,10 @@ sed -e '/^all:/s:$(DEMOS)::' -i Makefile
 
 %build
 %set_build_flags
-%make PREFIX=/usr LIBDIR="%{_libdir}"
+%make_build PREFIX="%{_prefix}" LIBDIR="%{_libdir}"
 
 %install
-%make_install PREFIX=/usr LIBDIR="%{_libdir}"
-
-%check
-# Tests are currently disabled because some require network access
-# Working with upstream to split these out
-#./run-tests
-#./run-benchmarks
+%make_install PREFIX="%{_prefix}" LIBDIR="%{_libdir}"
 
 %files -n %{libname}
 %{_libdir}/libtermkey.so.*
