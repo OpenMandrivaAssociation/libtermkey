@@ -16,7 +16,7 @@ Summary:	Library for easy processing of keyboard entry
 # the licensing breakdown is described in detail in the LICENSE file
 License:	MIT and BSD and ISC
 Group:		Development/C
-URL:		http://www.leonerd.org.uk/code/libtermkey/
+URL:		https://www.leonerd.org.uk/code/libtermkey/
 Source0:	http://www.leonerd.org.uk/code/libtermkey/%{name}-%{version}.tar.gz
 # ****ing libtool is good for nothing and messes with crosscompiling.
 # Let's just get rid of it!
